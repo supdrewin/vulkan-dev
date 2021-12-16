@@ -1,0 +1,6 @@
+# headers and lib
+include/
+lib/
+
+# marks
+*.done
