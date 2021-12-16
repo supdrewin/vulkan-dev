@@ -21,13 +21,15 @@ build/swiftshader: prepare/swiftshader
 install/swiftshader: build/swiftshader
 	install -Dm644 -t $(workspaceFolder)/include/vulkan $(swiftshader_src)/include/vulkan/*.h
 	install -Dm644 -t $(workspaceFolder)/include/vulkan $(swiftshader_src)/include/vulkan/*.hpp
-	install -Dm644 -t $(workspaceFolder)/lib $(swiftshader_build)/libvk_swiftshader.so
+	install -Dm644 -t $(workspaceFolder)/lib $(swiftshader_build)/Linux/libvk_swiftshader.so
+	install -Dm644 -t $(workspaceFolder)/lib $(swiftshader_build)/Linux/vk_swiftshader_icd.json
 	$(RM) $(workspaceFolder)/include/vulkan/vk_google_filtering_precision.h
 .PHONY: install/swiftshader
 
 uninstall/swiftshader:
 	$(RM) -r $(workspaceFolder)/include/vulkan
 	$(RM) $(workspaceFolder)/lib/libvk_swiftshader.so
+	$(RM) $(workspaceFolder)/lib/vk_swiftshader_icd.json
 .PHONY: uninstall/swiftshader
 
 clean/swiftshader: check/cmake
