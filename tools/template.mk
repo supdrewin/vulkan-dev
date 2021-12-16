@@ -4,7 +4,7 @@
 
 CXXFLAGS      += -std=c++2a -pedantic
 LDFLAGS       += -L${workspaceFolder}/lib -Wl,-rpath,lib
-LDLIBS        += -lvk_swiftshader
+LDLIBS        += -lglfw3 -lvk_swiftshader
 
 $(workspaceFolder)/bin/$(PROJECT): *.cpp
 	$(LINK.cpp) $^ $(LOADLIBES) $(LDLIBS) -o $@
