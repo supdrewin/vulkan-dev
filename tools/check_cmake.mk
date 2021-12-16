@@ -1,4 +1,4 @@
-# check_cmake.mk
+# check_cmake.mk - supdrewin
 
 override CMAKE_COMMAND = $(shell command -v cmake)
 
