@@ -5,7 +5,9 @@ swiftshader_build = $(swiftshader_src)/build
 
 prepare/swiftshader: check/cmake
 	$(CMAKE_COMMAND) \
+		--install-prefix $(workspaceFolder) \
 		-B $(swiftshader_build) \
+		-D BUILD_VULKAN_WRAPPER=TRUE \
 		-D REACTOR_BACKEND=Subzero \
 		-D SWIFTSHADER_BUILD_TESTS=FALSE \
 		-D SWIFTSHADER_WARNINGS_AS_ERRORS=FALSE \
@@ -19,6 +21,7 @@ build/swiftshader: prepare/swiftshader
 .PHONY: build/swiftshader
 
 install/swiftshader: build/swiftshader
+	$(CMAKE_COMMAND) --install $(swiftshader_build)
 	install -Dm644 -t $(workspaceFolder)/include/vulkan $(swiftshader_src)/include/vulkan/*.h
 	install -Dm644 -t $(workspaceFolder)/include/vulkan $(swiftshader_src)/include/vulkan/*.hpp
 	install -Dm644 -t $(workspaceFolder)/lib $(swiftshader_build)/Linux/libvk_swiftshader.so
@@ -36,5 +39,4 @@ clean/swiftshader: check/cmake
 	$(CMAKE_COMMAND) \
 		--build $(swiftshader_build) \
 		--target clean
-	$(RM) $(swiftshader_mark)
 .PHONY: clean/swiftshader

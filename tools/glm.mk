@@ -5,7 +5,7 @@ glm_build = $(build_dir)/glm
 
 prepare/glm: check/cmake
 	$(CMAKE_COMMAND) \
-		--install-prefix $(PWD) \
+		--install-prefix $(workspaceFolder) \
 		-B $(glm_build) \
 		-D BUILD_TESTING=OFF \
 		-S $(glm_src)
