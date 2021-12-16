@@ -1,8 +1,8 @@
 # template.mk - supdrewin
 
 CXXFLAGS += -std=c++2a -I${workspaceFolder}/include -pedantic
-LDFLAGS  += -L${workspaceFolder}/lib -Wl,-rpath,.
-LDLIBS   += -lglfw3 -lvk_swiftshader
+LDFLAGS  += -L${workspaceFolder}/lib -Wl,-rpath,.,-rpath,lib
+LDLIBS   += -lglfw3 -lpthread -ldl -lvk_swiftshader
 
 output_dir := $(workspaceFolder)/bin
 
