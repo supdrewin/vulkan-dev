@@ -22,11 +22,11 @@ install/swiftshader:
 .PHONY: install/swiftshader
 
 uninstall/swiftshader:
-	rm -rf $(workspaceFolder)/include/vulkan
-	rm -f $(workspaceFolder)/lib/libvk_swiftshader.so
+	$(RM) -r $(workspaceFolder)/include/vulkan
+	$(RM) $(workspaceFolder)/lib/libvk_swiftshader.so
 .PHONY: uninstall/swiftshader
 
 clean/swiftshader:
 	$(MAKE) -C $(swiftshader_build) clean
-	rm -f $(swiftshader_mark)
+	$(RM) $(swiftshader_mark)
 .PHONY: clean/swiftshader
