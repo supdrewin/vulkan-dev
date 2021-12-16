@@ -1,7 +1,8 @@
-# headers and lib
+# headers, lib...
 include/
 lib/
+share/
 
-# output
+# output and glslc
 bin/
 build/
