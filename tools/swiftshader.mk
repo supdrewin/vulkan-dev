@@ -23,4 +23,5 @@ uninstall/swiftshader:
 
 clean/swiftshader:
 	$(MAKE) -C $(swiftshader_build) clean
+	rm -f $(swiftshader_mark)
 .PHONY: clean/swiftshader
